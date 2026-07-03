@@ -76,7 +76,7 @@
 
             <div class="header-actions">
                 <a href="donate.html" class="btn btn-primary"><i class="ri-heart-3-line" aria-hidden="true"></i> Donate</a>
-                <button class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+                <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
                     <i class="ri-menu-3-line" aria-hidden="true"></i>
                 </button>
             </div>
@@ -208,6 +208,50 @@
             </div>
         </div>
     </footer>
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <!-- MOBILE NAV DRAWER -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="logo" aria-label="CCEYD Home">
+                <img src="images/logo.png" alt="CCEYD Logo" style="height: 40px; width: auto; border-radius: 6px;">
+            </a>
+            <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close Menu">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <div class="mobile-nav-dropdown">
+            <button class="mobile-nav-dropdown-toggle" aria-expanded="false">
+                Programs <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="mobile-nav-dropdown-menu">
+                <a href="programs.html">All Programs</a>
+                <a href="program-governance.html">Good Governance</a>
+                <a href="program-environment.html">Environmental Sustainability</a>
+                <a href="program-health.html">Health Education</a>
+                <a href="program-inclusive-edu.html">Inclusive Education</a>
+                <a href="program-trafficking.html">Human Trafficking Prevention</a>
+                <a href="program-child-rights.html">Child Rights</a>
+            </div>
+        </div>
+        <a href="impact.html">Impact</a>
+        <div class="mobile-nav-dropdown">
+            <button class="mobile-nav-dropdown-toggle" aria-expanded="false">
+                Get Involved <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="mobile-nav-dropdown-menu">
+                <a href="donate.html">Donate</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="partner.html">Partner With Us</a>
+            </div>
+        </div>
+        <a href="contact.html">Contact</a>
+        <a href="donate.html" class="btn btn-primary mobile-nav-cta">
+            <i class="ri-heart-3-line"></i> Donate Now
+        </a>
+    </nav>
     <script src="script.js"></script>
 </body>
 </html>

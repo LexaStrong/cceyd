@@ -1,5 +1,5 @@
 /**
- * GainLove - Main JavaScript
+ * CCEYD - Main JavaScript
  * Handles: loader, header scroll, mobile nav, scroll animations, progress bars
  */
 
@@ -18,7 +18,7 @@
   }
 
   // ===== HEADER SCROLL =====
-  const header = document.getElementById('header');
+  const header = document.getElementById('header') || document.querySelector('.header');
   if (header) {
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
@@ -33,7 +33,8 @@
   }
 
   // ===== MOBILE NAV =====
-  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  // Support both ID and class selectors for the toggle button
+  const mobileToggle = document.getElementById('mobile-menu-toggle') || document.querySelector('.mobile-menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
   const mobileOverlay = document.getElementById('mobile-overlay');
   const mobileClose = document.getElementById('mobile-nav-close');
@@ -53,6 +54,24 @@
   if (mobileToggle) mobileToggle.addEventListener('click', openMobileNav);
   if (mobileClose) mobileClose.addEventListener('click', closeMobileNav);
   if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileNav);
+
+  // Close mobile nav on link click
+  if (mobileNav) {
+    mobileNav.querySelectorAll('a:not(.mobile-nav-dropdown-toggle)').forEach((link) => {
+      link.addEventListener('click', closeMobileNav);
+    });
+  }
+
+  // Mobile nav accordion dropdowns
+  document.querySelectorAll('.mobile-nav-dropdown-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdown = toggle.closest('.mobile-nav-dropdown');
+      if (dropdown) {
+        dropdown.classList.toggle('open');
+      }
+    });
+  });
 
   // Close on ESC
   document.addEventListener('keydown', (e) => {

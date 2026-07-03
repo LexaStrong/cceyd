@@ -316,10 +316,46 @@ ul, ol {
   background: var(--dark);
   color: #fff;
 }
+.btn-outline-pill {
+  background: transparent;
+  border: 2px solid var(--dark);
+  color: var(--dark);
+  border-radius: var(--radius-full);
+}
+.btn-outline-pill:hover {
+  background: var(--dark);
+  color: #fff;
+}
 
 .btn-sm {
   padding: 8px 20px;
   font-size: 0.85rem;
+}
+
+/* ===== HEADER ACTIONS ===== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== GRID UTILITY ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ===== LOADER LOGO ===== */
+.loader-logo {
+  width: 80px;
+  height: auto;
+  animation: pulse-logo 1.5s ease-in-out infinite;
+}
+@keyframes pulse-logo {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.92); }
 }
 
 /* Mobile menu button */
@@ -929,6 +965,9 @@ ul, ol {
   color: rgba(255,255,255,0.6);
   padding: 6px 0;
   transition: var(--transition);
+  min-height: 36px;
+  display: flex;
+  align-items: center;
 }
 .footer-links a:hover {
   color: var(--primary);
@@ -967,6 +1006,7 @@ ul, ol {
 .footer-contact-item i {
   color: var(--primary);
   font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .footer-bottom {
@@ -1142,6 +1182,7 @@ ul, ol {
 }
 
 @media (max-width: 768px) {
+  /* --- Header --- */
   .nav-links {
     display: none;
   }
@@ -1153,102 +1194,293 @@ ul, ol {
   }
   .mobile-menu-btn {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+  }
+  .header-actions .btn {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+  .header-actions .btn .btn-text-label {
+    display: none;
+  }
+  .header-container {
+    height: 64px;
   }
 
+  /* --- Hero --- */
+  .hero {
+    padding-top: 64px;
+  }
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 40px;
+    gap: 32px;
+    padding: 40px 0;
   }
   .hero-content h1 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
   .hero-subtitle {
-    margin: 0 auto 32px;
+    margin: 0 auto 28px;
+    font-size: 0.92rem;
   }
   .hero-buttons {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-buttons .btn {
+    min-height: 48px;
+    padding: 12px 24px;
   }
   .hero-visual {
-    height: 350px;
+    height: 300px;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 360px;
+  }
+  .hero-img-main {
+    width: 220px;
+    height: 280px;
+  }
+  .hero-img-secondary {
+    width: 150px;
+    height: 190px;
   }
 
+  /* --- Sections --- */
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .section-subtitle {
+    font-size: 0.92rem;
+  }
+  .difference-section,
+  .about-section,
+  .campaigns-section,
+  .volunteer-section {
+    padding: 60px 0;
   }
 
   .difference-cards {
-    grid-template-columns: 1fr;
-    max-width: 400px;
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
     margin: 0 auto;
+    gap: 16px;
+  }
+  .diff-card {
+    padding: 24px 16px;
+  }
+  .diff-card .card-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.3rem;
+  }
+  .diff-card h3 {
+    font-size: 1rem;
+  }
+  .diff-card p {
+    font-size: 0.82rem;
   }
 
+  /* --- About --- */
   .about-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 32px;
   }
   .about-img-circle {
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
     margin: 0 auto;
   }
   .about-img-wrapper::before {
-    width: 350px;
-    height: 350px;
+    width: 310px;
+    height: 310px;
   }
   .about-content .section-label {
     text-align: center;
   }
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
   .about-buttons {
     justify-content: center;
+    flex-wrap: wrap;
   }
   .about-content .highlight-text {
     text-align: left;
+    font-size: 0.92rem;
   }
 
+  /* --- Campaigns --- */
   .campaigns-grid {
     grid-template-columns: 1fr;
-    max-width: 400px;
+    max-width: 420px;
     margin: 0 auto;
   }
 
+  /* --- Volunteer --- */
   .volunteer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     text-align: center;
+    gap: 32px !important;
+  }
+  .volunteer-content h2 {
+    font-size: 1.8rem !important;
   }
   .stats-row {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px !important;
+  }
+  .volunteer-img-wrapper {
+    height: 300px !important;
   }
 
+  /* --- CTA/Newsletter --- */
+  .cta-section {
+    padding: 50px 0;
+  }
+  .cta-section h2 {
+    font-size: 1.6rem !important;
+  }
   .cta-form {
-    flex-direction: column;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .cta-form input {
+    width: 100%;
+  }
+  .cta-form .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
   }
 
-  .footer-grid {
+  /* --- Grid-2 --- */
+  .grid-2 {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* --- Footer (compact 2-column grid) --- */
+  .footer {
+    padding: 40px 0 20px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 20px;
+    margin-bottom: 24px;
+  }
+  .footer-col.footer-about {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  .footer-col.footer-about .logo {
+    justify-content: center;
+  }
+  .footer-col.footer-about .social-links {
+    justify-content: center;
+  }
+  .footer-col h4 {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+  .footer-links a {
+    font-size: 0.82rem;
+    padding: 5px 0;
+    min-height: 38px;
+  }
+  .footer-about p {
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+  .footer-contact-item {
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+  }
+  .footer-bottom {
+    padding-top: 16px;
+    font-size: 0.78rem;
+  }
+
+  /* --- Buttons touch targets --- */
+  .btn {
+    min-height: 44px;
+    padding: 10px 22px;
+  }
+
+  /* --- Forms --- */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent iOS zoom */
   }
 }
 
 @media (max-width: 480px) {
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   .hero-visual {
-    height: 280px;
+    height: 240px;
   }
   .hero-img-main {
-    width: 200px;
-    height: 260px;
+    width: 180px;
+    height: 230px;
   }
   .hero-img-secondary {
-    width: 140px;
-    height: 170px;
+    width: 120px;
+    height: 150px;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .section-label {
+    font-size: 0.72rem;
+  }
+  .difference-cards {
+    grid-template-columns: 1fr;
+    max-width: 320px;
   }
   .stats-row {
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
+  }
+  .stat-number {
+    font-size: 2rem !important;
+  }
+  .about-img-circle {
+    width: 220px;
+    height: 220px;
+  }
+  .about-img-wrapper::before {
+    width: 260px;
+    height: 260px;
+  }
+  .about-content h2 {
+    font-size: 1.5rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+  }
+  .footer-col.footer-about {
+    grid-column: 1 / -1;
+  }
+  .volunteer-section {
+    padding: 50px 0 !important;
+  }
+  .campaigns-grid {
+    max-width: 320px;
   }
 }
 
@@ -1308,6 +1540,10 @@ input, select, textarea, button {
     .partner-btn {
         margin-left: 0 !important;
     }
+    /* Donate page inner hero override */
+    .donate-section {
+        padding: 100px 0 60px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1318,4 +1554,53 @@ input, select, textarea, button {
         padding: 12px 8px;
         font-size: 0.9rem;
     }
+}
+
+/* ===== MOBILE NAV DROPDOWN ACCORDION ===== */
+.mobile-nav-dropdown {
+  border-bottom: 1px solid #f1f1f1;
+}
+.mobile-nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+.mobile-nav-dropdown-toggle i {
+  transition: var(--transition);
+  font-size: 1.2rem;
+}
+.mobile-nav-dropdown.open .mobile-nav-dropdown-toggle i {
+  transform: rotate(180deg);
+}
+.mobile-nav-dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mobile-nav-dropdown.open .mobile-nav-dropdown-menu {
+  max-height: 400px;
+}
+.mobile-nav-dropdown-menu a {
+  padding: 10px 0 10px 20px !important;
+  font-size: 0.92rem !important;
+  color: var(--text-light) !important;
+  border-bottom: none !important;
+}
+.mobile-nav-dropdown-menu a:hover {
+  color: var(--primary) !important;
+}
+.mobile-nav .mobile-nav-cta {
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
 }
